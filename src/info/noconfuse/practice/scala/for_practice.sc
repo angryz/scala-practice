@@ -16,5 +16,5 @@ object for_practice {
     s1 = s.toUpperCase()
     if (s1 != "")
   } yield (s1)
-  :throws
+
 }
