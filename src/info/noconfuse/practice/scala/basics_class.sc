@@ -1,21 +1,21 @@
 /**
   * simple class
   */
-class CalculatorA {
+class A {
   val brand = "Benz"
 
   def add(a: Int, b: Int): Int = a + b
 }
 
-val calcA = new CalculatorA
-calcA.add(1, 2)
-calcA.brand
+val a = new A
+a.add(1, 2)
+a.brand
 
 
 /**
   * class with a constructor
   */
-class CalculatorB(brand: String) {
+class B(brand: String) {
   /**
     * constructor
     */
@@ -33,5 +33,27 @@ class CalculatorB(brand: String) {
   def add(a: Int, b: Int): Int = a + b
 }
 
-val benz = new CalculatorB("Benz")
+val benz = new B("Benz")
 benz.color
+
+
+/**
+  * function v.s. method
+  */
+class C {
+  var acc = 0
+
+  def m_inc = {
+    acc += 1
+  }
+
+  def f_inc = {
+    () => acc += 1
+  }
+}
+val c = new C
+c.m_inc // call instance method
+c.acc
+c.f_inc // returns the function as a value
+c.acc
+
