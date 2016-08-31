@@ -51,9 +51,22 @@ class C {
     () => acc += 1
   }
 }
+
 val c = new C
 c.m_inc // call instance method
 c.acc
 c.f_inc // returns the function as a value
 c.acc
+
+
+/**
+  * Inheritance
+  */
+class D(brand: String) extends B(brand) {
+  def log(a: Double, b: Double) = math.log(a) / math.log(b)
+}
+
+class E(brand: String) extends D(brand) {
+  def log(a: Int): Double = log(a, math.exp(1))
+}
 
