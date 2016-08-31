@@ -70,3 +70,18 @@ class E(brand: String) extends D(brand) {
   def log(a: Int): Double = log(a, math.exp(1))
 }
 
+/**
+  * abstract class
+  */
+abstract class Shape {
+  def getArea(): Int
+}
+
+class Circle(r: Int) extends Shape {
+  override def getArea(): Int = { r * r * 3 }
+}
+// Shape can't be instanced
+// val s = new Shape
+val circle = new Circle(2)
+val cArea = circle.getArea()
+
