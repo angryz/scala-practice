@@ -36,3 +36,24 @@ object Hello {
 }
 
 val hello = Hello("foo")
+
+
+// Functions are Objects
+object addOne extends Function1[Int, Int] {
+  def apply(a: Int): Int = a + 1
+}
+addOne(1)
+
+class AddOne extends Function1[Int, Int] {
+  def apply(a: Int): Int = a + 1
+}
+val plusOne = new AddOne
+plusOne(2)
+
+class AddTwo extends (Int => Int) {
+  def apply(a: Int): Int = a + 2
+}
+val plusTwo = new AddTwo
+plusTwo(2)
+
+
