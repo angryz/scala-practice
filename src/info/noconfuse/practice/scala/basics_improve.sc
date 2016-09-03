@@ -42,17 +42,20 @@ val hello = Hello("foo")
 object addOne extends Function1[Int, Int] {
   def apply(a: Int): Int = a + 1
 }
+
 addOne(1)
 
 class AddOne extends Function1[Int, Int] {
   def apply(a: Int): Int = a + 1
 }
+
 val plusOne = new AddOne
 plusOne(2)
 
 class AddTwo extends (Int => Int) {
   def apply(a: Int): Int = a + 2
 }
+
 val plusTwo = new AddTwo
 plusTwo(2)
 
@@ -68,7 +71,7 @@ times match {
 
 times match {
   case i if i == 1 => "one"
-  case i if i == 2 =>"two"
+  case i if i == 2 => "two"
   case _ => "other"
 }
 
@@ -91,6 +94,7 @@ bigger("a")
 
 // Case Classes
 case class Car(brand: String, model: String)
+
 val benz = Car("Benz", "c200l")
 val c200l = Car("Benz", "c200l")
 benz == c200l
@@ -100,7 +104,7 @@ def carType(car: Car) = car match {
   case Car("Benz", "c200l") => "white"
   case Car("BMW", "530") => "blue"
   case Car(aBrand, aModel) => "Car %s %s is unknow type"
-      .format(aBrand, aModel)
+    .format(aBrand, aModel)
 }
 
 carType(c200l)
@@ -108,21 +112,17 @@ carType(Car("Toyota", "0"))
 
 
 // Exceptions
-def makeExceptions(n: Int): Unit = {
-  case 1 => throw IllegalAccessException
-  case 2 => throw IllegalStateException
-  case _ => throw IllegalArgumentException
+def makeExceptions(n: Int): String = {
+  case 1 => 1 / 0
+  case 2 => "two"
+  case _ => "ok"
 }
 
-var result = ""
-try {
+var result: String = try {
   makeExceptions(2)
 } catch {
-  case e: IllegalArgumentException => result = "input: not 1 nor 2"
-  case e: IllegalAccessError => result = "input: 1"
-  case e: IllegalStateException => result = "input: 2"
+  case e: IllegalAccessError => "input: 1"
+  case e: IllegalStateException => "input: 2"
 } finally {
-  result += "  finished"
 }
-s"result is ${result}"
 
