@@ -87,3 +87,21 @@ bigger(-2)
 bigger(0.3)
 bigger(-0.4)
 bigger("a")
+
+
+// Case Classes
+case class Car(brand: String, model: String)
+val benz = Car("Benz", "c200l")
+val c200l = Car("Benz", "c200l")
+benz == c200l
+
+def carType(car: Car) = car match {
+  case Car("Audi", "a4l") => "grey"
+  case Car("Benz", "c200l") => "white"
+  case Car("BMW", "530") => "blue"
+  case Car(aBrand, aModel) => "Car %s %s is unknow type"
+      .format(aBrand, aModel)
+}
+
+carType(c200l)
+carType(Car("Toyota", "0"))
