@@ -105,3 +105,24 @@ def carType(car: Car) = car match {
 
 carType(c200l)
 carType(Car("Toyota", "0"))
+
+
+// Exceptions
+def makeExceptions(n: Int): Unit = {
+  case 1 => throw IllegalAccessException
+  case 2 => throw IllegalStateException
+  case _ => throw IllegalArgumentException
+}
+
+var result = ""
+try {
+  makeExceptions(2)
+} catch {
+  case e: IllegalArgumentException => result = "input: not 1 nor 2"
+  case e: IllegalAccessError => result = "input: 1"
+  case e: IllegalStateException => result = "input: 2"
+} finally {
+  result += "  finished"
+}
+s"result is ${result}"
+
