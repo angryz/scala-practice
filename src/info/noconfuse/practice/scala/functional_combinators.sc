@@ -13,3 +13,9 @@ numbers map squared
 // foreach: like map but without return value
 numbers.foreach((i: Int) => i * 2)
 
+
+// filter
+numbers.filter((i: Int) => i % 2 == 0)
+def isEven(i: Int): Boolean = i % 2 == 0
+numbers.filter(isEven _)
+numbers filter isEven
