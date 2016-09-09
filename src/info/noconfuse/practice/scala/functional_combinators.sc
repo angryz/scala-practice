@@ -39,3 +39,12 @@ numbers.drop(2)
 
 // dropWhile: removes the first elements that match a predicate function
 numbers.dropWhile(_ % 2 != 0)
+
+
+// foldLeft: 0 is the starting value (Remember that numbers is a List[Int]), and m acts as an
+// accumulator
+numbers.foldLeft(0)((m: Int, n: Int) => m + n)
+
+
+// foldRight: same as foldLeft except it runs in the opposite direction
+numbers.foldRight(0)((m: Int, n: Int) => m + n)
