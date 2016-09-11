@@ -22,7 +22,7 @@ numbers filter isEven
 
 
 // zip: aggregates the contents of two lists into a single list of pairs
-numbers.zip(List("a", "b", "c"))
+numbers.zip(List("a", "b", "c", "d", "e"))
 
 
 // partition: splits a list based on where it falls with respect to a predicate function
@@ -48,3 +48,8 @@ numbers.foldLeft(0)((m: Int, n: Int) => m + n)
 
 // foldRight: same as foldLeft except it runs in the opposite direction
 numbers.foldRight(0)((m: Int, n: Int) => m + n)
+
+
+// flatten: collapses one level of nested structure
+List(List(1, 2), List(3, 4)).flatten
+
