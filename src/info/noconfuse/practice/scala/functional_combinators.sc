@@ -62,5 +62,10 @@ nestedNumbers.flatMap(x => x.map(_ * 2))
 nestedNumbers.map((x: List[Int]) => x.map(_ * 2)).flatten
 
 
-
-
+// generalized functional combinators
+def ourMap(numbers: List[Int], fn: Int => Int): List[Int] = {
+  numbers.foldRight(List[Int]()) { (x: Int, xs: List[Int]) =>
+    fn(x) :: xs
+  }
+}
+ourMap(numbers, timesTwo(_))
