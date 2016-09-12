@@ -69,3 +69,11 @@ def ourMap(numbers: List[Int], fn: Int => Int): List[Int] = {
   }
 }
 ourMap(numbers, timesTwo(_))
+
+
+// Map
+val extensions = Map("steve" -> 100, "bob" -> 101, "joe" -> 201)
+// bad way
+extensions.filter((namePhone: (String, Int)) => namePhone._2 < 200)
+// good way
+extensions.filter({ case (name, extension) => extension < 200 })
