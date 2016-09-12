@@ -53,3 +53,14 @@ numbers.foldRight(0)((m: Int, n: Int) => m + n)
 // flatten: collapses one level of nested structure
 List(List(1, 2), List(3, 4)).flatten
 
+
+// flatMap: takes a function that works on the nested lists and then concatenates the results
+// back together
+val nestedNumbers = List(List(1, 2), List(3, 4))
+nestedNumbers.flatMap(x => x.map(_ * 2))
+// same as
+nestedNumbers.map((x: List[Int]) => x.map(_ * 2)).flatten
+
+
+
+
