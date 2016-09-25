@@ -28,3 +28,17 @@ def timesTwo(x: Int): Int = {
 } // 多个表达式的匿名函数
 
 
+// 部分应用 partial application
+val add1 = add(1, _: Int) // _ 可以看做一个通配符
+add1(2)
+
+
+// 柯里化函数
+def multiply(m: Int)(n: Int): Int = m * n
+multiply(2)(3)
+
+val timesFour = multiply(4) _
+timesFour(2)
+
+(add _).curried // 可对任何多参数函数柯里化
+
