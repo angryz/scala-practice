@@ -42,3 +42,12 @@ timesFour(2)
 
 (add _).curried // 可对任何多参数函数柯里化
 
+
+// 可变长参数
+def captializeAll(args: String*) = {
+  args.map( arg =>
+    arg.capitalize
+  )
+}
+captializeAll("apple", "facebook", "twitter")
+
