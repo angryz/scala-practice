@@ -139,7 +139,7 @@ trait Car {
 }
 
 trait Shiny {
-  val shineRefaction: Int
+  val shineRefraction: Int
 }
 
 // 和抽象类一样用 extends 扩展一个特质
@@ -150,7 +150,7 @@ class BMW extends Car {
 // 通过 with 关键字扩展多个特质
 class Benz extends Car with Shiny {
   val brand = "Benz"
-  val shineRefaction = 12
+  val shineRefraction = 12
 }
 
 
@@ -158,23 +158,27 @@ class Benz extends Car with Shiny {
 // 泛型: 用 [] 引入类型参数
 trait Cache[K, V] {
   def get(key: K): V
+
   def put(key: K, value: V)
+
   def delete(key: K)
 }
+
 class LocalCache extends Cache[String, String] {
   override def get(key: String): String = {
     // get value of key from cache implementation
     "value"
   }
 
-  override def put(key: String, value: String): Unit = {
+  override def put(key: String, value: String) = {
     // put value into cache implementation
   }
 
-  override def delete(key: String): Unit = {
+  override def delete(key: String) = {
     // remote key from cache implementation
   }
 }
+
 val lc = new LocalCache()
 lc.put("k1", "v1")
 lc.get("k1")
