@@ -90,3 +90,19 @@ c.minc // call method minc()
 c.finc // return the function as a value
 c.acc
 
+
+// 继承
+class ScientificCalculator(brand: String) extends Computor(brand) {
+  def log(m: Double, base: Double): Double = math.log(m) / math.log(base)
+}
+val sCalc = new ScientificCalculator("HP")
+sCalc.color
+sCalc.log(4.5, 10.88)
+
+// 继承: 重载方法
+class EvenMoreScientificCalc(brand: String) extends ScientificCalculator(brand) {
+  def log(m: Int): Double = log(m, math.exp(1))
+}
+val emsCalc = new EvenMoreScientificCalc("TI")
+emsCalc.color
+emsCalc.log(8)
