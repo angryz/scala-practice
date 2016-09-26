@@ -106,3 +106,15 @@ class EvenMoreScientificCalc(brand: String) extends ScientificCalculator(brand) 
 val emsCalc = new EvenMoreScientificCalc("TI")
 emsCalc.color
 emsCalc.log(8)
+
+
+// 抽象类
+abstract class Shape {
+  def getArea(): Int
+}
+class Circle(r: Int) extends Shape {
+  def getArea(): Int = { r * r * 3 }
+}
+val circle = new Circle(2)
+circle.getArea()
+
