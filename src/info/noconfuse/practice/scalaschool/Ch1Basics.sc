@@ -45,7 +45,7 @@ timesFour(2)
 
 // 可变长参数
 def captializeAll(args: String*) = {
-  args.map( arg =>
+  args.map(arg =>
     arg.capitalize
   )
 }
@@ -55,6 +55,7 @@ captializeAll("apple", "facebook", "twitter")
 // 类
 class Calculator {
   val brand: String = "HP"
+
   def add(x: Int, y: Int): Int = x + y
 }
 
@@ -75,6 +76,7 @@ class Computor(brand: String) {
 
   def add(x: Int, y: Int): Int = x + y
 }
+
 val compHP = new Computor("HP")
 compHP.color
 
@@ -82,9 +84,15 @@ compHP.color
 // 函数和方法
 class C {
   var acc = 0
-  def minc = { acc += 1 } // a method
+
+  def minc = {
+    acc += 1
+  }
+
+  // a method
   val finc = { () => acc += 1 } // a function
 }
+
 val c = new C
 c.minc // call method minc()
 c.finc // return the function as a value
@@ -95,6 +103,7 @@ c.acc
 class ScientificCalculator(brand: String) extends Computor(brand) {
   def log(m: Double, base: Double): Double = math.log(m) / math.log(base)
 }
+
 val sCalc = new ScientificCalculator("HP")
 sCalc.color
 sCalc.log(4.5, 10.88)
@@ -103,6 +112,7 @@ sCalc.log(4.5, 10.88)
 class EvenMoreScientificCalc(brand: String) extends ScientificCalculator(brand) {
   def log(m: Int): Double = log(m, math.exp(1))
 }
+
 val emsCalc = new EvenMoreScientificCalc("TI")
 emsCalc.color
 emsCalc.log(8)
@@ -112,9 +122,13 @@ emsCalc.log(8)
 abstract class Shape {
   def getArea(): Int
 }
+
 class Circle(r: Int) extends Shape {
-  def getArea(): Int = { r * r * 3 }
+  def getArea(): Int = {
+    r * r * 3
+  }
 }
+
 val circle = new Circle(2)
 circle.getArea()
 
@@ -138,3 +152,33 @@ class Benz extends Car with Shiny {
   val brand = "Benz"
   val shineRefaction = 12
 }
+
+
+// 类型
+// 泛型: 用 [] 引入类型参数
+trait Cache[K, V] {
+  def get(key: K): V
+  def put(key: K, value: V)
+  def delete(key: K)
+}
+class LocalCache extends Cache[String, String] {
+  override def get(key: String): String = {
+    // get value of key from cache implementation
+    "value"
+  }
+
+  override def put(key: String, value: String): Unit = {
+    // put value into cache implementation
+  }
+
+  override def delete(key: String): Unit = {
+    // remote key from cache implementation
+  }
+}
+val lc = new LocalCache()
+lc.put("k1", "v1")
+lc.get("k1")
+lc.delete("k1")
+
+// 方法也可以引入类型参数
+def remote[K](key: K)
