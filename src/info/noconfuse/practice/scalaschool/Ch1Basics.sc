@@ -78,3 +78,15 @@ class Computor(brand: String) {
 val compHP = new Computor("HP")
 compHP.color
 
+
+// 函数和方法
+class C {
+  var acc = 0
+  def minc = { acc += 1 } // a method
+  val finc = { () => acc += 1 } // a function
+}
+val c = new C
+c.minc // call method minc()
+c.finc // return the function as a value
+c.acc
+
