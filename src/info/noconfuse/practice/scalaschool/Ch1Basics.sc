@@ -51,3 +51,30 @@ def captializeAll(args: String*) = {
 }
 captializeAll("apple", "facebook", "twitter")
 
+
+// 类
+class Calculator {
+  val brand: String = "HP"
+  def add(x: Int, y: Int): Int = x + y
+}
+
+val calc = new Calculator
+calc.add(1, 2)
+calc.brand
+
+// 类:构造函数
+class Computor(brand: String) {
+  // 一个构造函数
+  val color: String = if (brand == "TI") {
+    "blue"
+  } else if (brand == "HP") {
+    "black"
+  } else {
+    "white"
+  }
+
+  def add(x: Int, y: Int): Int = x + y
+}
+val compHP = new Computor("HP")
+compHP.color
+
