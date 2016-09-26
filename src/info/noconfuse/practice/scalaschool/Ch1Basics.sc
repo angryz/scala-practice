@@ -118,3 +118,23 @@ class Circle(r: Int) extends Shape {
 val circle = new Circle(2)
 circle.getArea()
 
+
+// 特质 Traits
+trait Car {
+  val brand: String
+}
+
+trait Shiny {
+  val shineRefaction: Int
+}
+
+// 和抽象类一样用 extends 扩展一个特质
+class BMW extends Car {
+  val brand = "BMW"
+}
+
+// 通过 with 关键字扩展多个特质
+class Benz extends Car with Shiny {
+  val brand = "Benz"
+  val shineRefaction = 12
+}
